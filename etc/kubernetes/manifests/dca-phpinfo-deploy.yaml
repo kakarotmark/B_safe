@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dca-phpinfo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dca-phpinfo
+  template:
+    metadata:
+      labels:
+        app: dca-phpinfo
+    spec:
+      containers:
+        -
+          image: academiaonline/dca-phpinfo:latest
+          name: dca-phpinfo
+          ports:
+            - containerPort: 8080
